@@ -3,7 +3,9 @@
 <b>List of files that have not been processed.</b><br><hr>
 <?php 
 include 'sharedFunctions.php';
-$files = read_folder_directory ($_SERVER["DOCUMENT_ROOT"].$library_uploadDir); 
+include 'libraryConfig.php';
+//$files = read_folder_directory ($_SERVER["DOCUMENT_ROOT"].$library_uploadDir); 
+$files = read_folder_directory ($library_uploadDir);
 
 if ($files) 
 { 

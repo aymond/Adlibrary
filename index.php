@@ -4,33 +4,31 @@
 <?php 
 include 'sharedFunctions.php';
 include 'libraryConfig.php';
-//$files = read_folder_directory ($_SERVER["DOCUMENT_ROOT"].$library_uploadDir); 
-$files = read_folder_directory ($library_uploadDir);
+$files = read_folder_directory($library_uploadDir);
 
 if ($files) 
 { 
+	// $files is an array of filenames
 	foreach ($files as $file) 
 	{ 
-		// Another tokenizer
+		// Tokenize filename so we can extract book details.
 		$tokens = explode ('-',$file);
-		/*echo $tokens[0]."<br />";
-		echo $tokens[1]."<br />";
-		echo $tokens[2]."<br />";	*/
-		//echo $tokens[3]."<br />";
 		
 		if ($tokens[2]) {
-			$bookTitle = $tokens[2];
+			// Finds the last . in the name, and copies the string until this character
+			$bookTitle = substr($tokens[2], 0, strrpos($tokens[2], '.'));
 			$bookSeries = $tokens[1];
+			
 			$bookAuthor = $tokens[0];
 		} elseif ($tokens[1]) {
 			$bookSeries = '';
-			$bookTitle = $tokens[1];
+			$bookTitle = substr($tokens[1], 0, strrpos($tokens[1], '.'));
 			$bookAuthor = $tokens[0];
 		} else {
 			$bookSeries = '';
 			$bookTitle = '';
 			$bookAuthor = '';
-			$booktitle = $tokens[0];
+			$bookTitle = substr($tokens[0], 0, strrpos($tokens[0], '.'));
 		}
 
 		echo "Author: ".$bookAuthor."<br />";

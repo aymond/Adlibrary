@@ -15,4 +15,4 @@ function read_folder_directory($dir){
 	} 
 	return $listDir; 
 } 
-?>
+

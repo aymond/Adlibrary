@@ -1,0 +1,15 @@
+tr.d0 td{
+	/*background-color:#FFFFFF;*/
+	padding: 0px 0px 0px 0px;
+}
+tr.d1 td{
+	/*background-color:#CCCCCC;*/
+	padding: 0px 0px 0px 0px;
+}
+
+.box{
+	vertical-align:middle;
+	border:1px #d6d6d6;
+	border-style:dotted none none none
+}
+

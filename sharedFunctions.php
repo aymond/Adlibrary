@@ -28,15 +28,18 @@ function makePDFCover($filePath){
 	imagedestroy($im);
 }
 
-function db_insertNewBook($bookTitle,$bookAuthor,$bookYear,$bookDescription,$file,$dateTime){
+function db_insertNewBook($bookTitle,$bookAuthor,$bookYear,$bookSeries,$file){
   # TODO Insert into database. Get the correct time and date for the timedate field.
 	$sql= "INSERT INTO 
-		book (title, series, author, year, description, filename, dateAdded ) 
+		book (title, author, year, series, filename, dateAdded ) 
 		VALUES
-		($bookTitle,$bookAuthor,$bookYear,$bookDescription,$file,NOW());";
-	mysql_query($sql) or die($mysql_error);
+		('$bookTitle','$bookAuthor','$bookYear','$bookSeries','$file',NOW());";
+	mysql_query($sql) or die('Query ' .$sql . ' failed.' . mysql_error());
 }
 
+function safe($value){ 
+   return mysql_real_escape_string($value); 
+}
 ?>
 
 

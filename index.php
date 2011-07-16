@@ -34,7 +34,7 @@ if ($files)
 		}
 		
 		if (strpos($file, '.pdf')){makePDFCover($file);}
-	        display_new_book_in_form2('action.php', $file, $bookTitle, $bookSeries, $bookAuthor, $bookTitle);
+	        display_new_book_in_form2('./cgi-bin/action.php', $file, $bookTitle, $bookSeries, $bookAuthor, $bookTitle);
 		
 	} 
 } else {

@@ -27,7 +27,6 @@ include 'libraryConfig.php';
 <?php if (strpos($file, '.pdf')){
 	imagepng(makePDFCover($file),"test.png");
 }?>
-	<img src="test.png")
 </P></TD>
 		<TD ><label for="bookTitle"><span class="title">Title</span><input type="text" size="50" name="bookTitle" id=bookTitle value="<?php echo $bookTitle; ?>" /></label></TD>
 		<TD ROWSPAN=2 ><label for="bookTags"><span class="title">Tags</span><input type="text" size="50" name="bookTags" id=bookTags value="" /></label></TD>
@@ -37,7 +36,8 @@ include 'libraryConfig.php';
 		<TD ><label for="bookSeries"><span class="title">Series</span><input type="text" size="35" name="bookSeries" id=bookSeries value="<?php echo $bookSeries; ?>" /></label></TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD ><label for="bookAuthor"><span class="title">Author</span><input type="text" size="25" name="bookAuthor" id=bookAuthor value="<?php echo $bookAuthor; ?>" /></label></TD>
+		<TD ><label for="bookAuthor"><span class="title">Author</span><input type="text" size="25" name="bookAuthor" id=bookAuthor value="<?php echo $bookAuthor; ?>" /></label>
+		<label for="bookYear"><span class="title">Year</span><input type="text" size="4" name="bookYear" id=bookYear value="" /></label></TD>
 		<TD ROWSPAN=2 ><label for="bookCategories"><span class="title">Categories</span><input type="text" size="50" name="bookCategories" id=bookCategories value="" /></label></TD>
 		<TD ROWSPAN=3 ><input type="image" src=<?php echo $_updateDatabaseIcon; ?> value="submit" alt="Submit" title="Add book to library"/></TD>
 	</TR>

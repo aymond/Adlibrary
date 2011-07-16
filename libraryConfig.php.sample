@@ -1,0 +1,25 @@
+<?php
+// Library location
+$library_uploadDir = "/path/to/library_upload/";
+$library_ebookDir = "/path/to/library_ebooks/";
+// Connection Parameters
+$db_host = "localhost";
+$db_name = "dbname"; #Library Name
+$username = "username"; #User name
+$password = "password"; #Password
+$db_con = mysql_connect($db_host,$username,$password);
+if (!$db_con) {
+	die ('Could not connect: ' . mysql_error());
+}else{
+	$connection_string = mysql_select_db($db_name);
+
+	// Connectionmysql_c
+	mysql_connect($db_host,$username,$password);
+	mysql_select_db($db_name);
+}
+
+// Other variables
+$_downloadIcon = "'/images/Files-Download-File-icon48x48.png'";
+$_updateDatabaseIcon = "'/images/Misc-Upload-Database-icon48x48.png'";
+$_defaultBookCover = "'/images/unknown64x64.png'";
+?>

@@ -16,13 +16,13 @@ if ($files)
 		// Tokenize filename so we can extract book details.
 		$tokens = explode ('-',$file);
 		
-		if ($tokens[2]) {
+		if (!empty($tokens[2])) {
 			// Finds the last . in the name, and copies the string until this character
 			$bookTitle = trim(substr($tokens[2], 0, strrpos($tokens[2], '.')));
 			$bookSeries = trim($tokens[1]);
 			
 			$bookAuthor = trim($tokens[0]);
-		} elseif ($tokens[1]) {
+		} elseif (!empty($tokens[1])) {
 			$bookSeries = '';
 			$bookTitle = trim(substr($tokens[1], 0, strrpos($tokens[1], '.')));;
 			$bookAuthor = trim($tokens[0]);
@@ -32,7 +32,9 @@ if ($files)
 			$bookAuthor = '';
 			$bookTitle = trim(substr($tokens[0], 0, strrpos($tokens[0], '.')));
 		}
-	        display_new_book_in_form('action.php', $file, $bookTitle, $bookSeries, $bookAuthor, $bookTitle);
+		
+		if (strpos($file, '.pdf')){makePDFCover($file);}
+	        display_new_book_in_form2('action.php', $file, $bookTitle, $bookSeries, $bookAuthor, $bookTitle);
 		
 	} 
 } else {
@@ -40,6 +42,7 @@ if ($files)
 }
 ?>
 </table>
+<?php display_new_book_in_form2();?>
 <label>
 <form action="action.php" method="post">
 <p>Book Title: <input type="text" name="title" /> </p>
